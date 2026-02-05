@@ -1,0 +1,43 @@
+# Default configuration for Evolutionary RL
+
+# Environment settings
+env:
+  name: "CartPole-v1"
+  seed: 42
+  max_episode_steps: 1000
+
+# Training settings
+training:
+  generations: 100
+  population_size: 20
+  eval_episodes: 10
+  save_frequency: 10
+  early_stopping:
+    patience: 20
+    min_delta: 1e-4
+
+# Algorithm settings
+algorithm:
+  name: "simple_es"  # simple_es, cmaes, differential_evolution
+  mutation_rate: 0.1
+  mutation_strength: 0.1
+  elite_size: 1
+
+# Model settings
+model:
+  hidden_sizes: [64, 64]
+  dropout: 0.0
+  activation: "relu"
+
+# Logging settings
+logging:
+  level: "INFO"
+  log_dir: "logs"
+  save_plots: true
+  save_videos: false
+
+# Evaluation settings
+evaluation:
+  num_episodes: 100
+  deterministic: true
+  save_results: true
